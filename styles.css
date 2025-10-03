@@ -209,12 +209,12 @@
     width: 100%;
 }
 
-.path-mod-choicegroup td {
+.path-mod-choicegroup td:not(.yui3-calendar-day) {
     border-top: 1px #ccc solid;
 }
 
-.path-mod-choicegroup th,
-.path-mod-choicegroup td {
+.path-mod-choicegroup th:not(.yui3-calendar-weekday),
+.path-mod-choicegroup td:not(.yui3-calendar-day):not(.yui3-calendar-nextmonth-day):not(.yui3-calendar-prevmonth-day) {
     padding: 10px 15px;
 }
 
