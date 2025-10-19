@@ -32,8 +32,8 @@ require_once($CFG->dirroot . '/mod/choicegroup/backup/moodle2/backup_choicegroup
  * choicegroup backup task that provides all the settings and steps to perform one
  * complete backup of the activity
  */
-class backup_choicegroup_activity_task extends backup_activity_task {
-
+class backup_choicegroup_activity_task extends backup_activity_task
+{
     /**
      * Define (add) particular settings this activity can have
      */
@@ -62,11 +62,11 @@ class backup_choicegroup_activity_task extends backup_activity_task {
         $base = preg_quote($CFG->wwwroot, "/");
 
         // Link to the list of choicegroups.
-        $search = "/(".$base."\/mod\/choicegroup\/index.php\?id\=)([0-9]+)/";
+        $search = "/(" . $base . "\/mod\/choicegroup\/index.php\?id\=)([0-9]+)/";
         $content = preg_replace($search, '$@CHOICEGROUPINDEX*$2@$', $content);
 
         // Link to choicegroup view by moduleid.
-        $search = "/(".$base."\/mod\/choicegroup\/view.php\?id\=)([0-9]+)/";
+        $search = "/(" . $base . "\/mod\/choicegroup\/view.php\?id\=)([0-9]+)/";
         $content = preg_replace($search, '$@CHOICEGROUPVIEWBYID*$2@$', $content);
 
         return $content;

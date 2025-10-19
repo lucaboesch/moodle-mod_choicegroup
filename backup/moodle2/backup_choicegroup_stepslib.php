@@ -26,8 +26,8 @@
 /**
  * Define the complete url structure for backup, with file and id annotations
  */
-class backup_choicegroup_activity_structure_step extends backup_activity_structure_step {
-
+class backup_choicegroup_activity_structure_step extends backup_activity_structure_step
+{
     /**
      * Defines structure of activity backup
      *
@@ -56,11 +56,13 @@ class backup_choicegroup_activity_structure_step extends backup_activity_structu
         // Define sources.
         $choicegroup->set_source_table('choicegroup', ['id' => backup::VAR_ACTIVITYID]);
 
-        $option->set_source_sql('
+        $option->set_source_sql(
+            '
             SELECT *
               FROM {choicegroup_options}
              WHERE choicegroupid = ?',
-            [backup::VAR_PARENTID]);
+            [backup::VAR_PARENTID],
+        );
 
         // Define file annotations.
         $choicegroup->annotate_files('mod_choicegroup', 'intro', null); // This file area hasn't itemid.

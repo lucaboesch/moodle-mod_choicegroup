@@ -35,8 +35,8 @@ require_once($CFG->dirroot . '/mod/choicegroup/lib.php');
  * @copyright  2018 Sara Arjona <sara@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_choicegroup_external extends external_api {
-
+class mod_choicegroup_external extends external_api
+{
     /**
      * Describes the parameters for get_choicegroup_options.
      *
@@ -112,7 +112,7 @@ class mod_choicegroup_external extends external_api {
                 $option['disabled'] = $alloptionsdisabled;
                 if ($limitreached && $stillnotanswered) {
                     $option['disabled'] = true;
-                    $option['name'] .= ' '.get_string('full', 'choicegroup');
+                    $option['name'] .= ' ' . get_string('full', 'choicegroup');
                 }
 
                 $returnedoptions[] = $option;
@@ -184,7 +184,7 @@ class mod_choicegroup_external extends external_api {
 
         // Request and permission validation.
         $choicegroup = $DB->get_record('choicegroup', ['id' => $params['choicegroupid']], '*', MUST_EXIST);
-        list($course, $cm) = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
+        [$course, $cm] = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
 
         $context = context_module::instance($cm->id);
         self::validate_context($context);
@@ -227,7 +227,7 @@ class mod_choicegroup_external extends external_api {
      * @return external_function_parameters
      */
     public static function submit_choicegroup_response_parameters() {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'choicegroupid' => new external_value(PARAM_INT, 'Choice group instance id'),
                 'data' => new external_multiple_structure(
@@ -267,7 +267,7 @@ class mod_choicegroup_external extends external_api {
         if (!$choicegroup = choicegroup_get_choicegroup($choicegroupid)) {
             throw new moodle_exception('invalidcoursemodule', 'error');
         }
-        list($course, $cm) = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
+        [$course, $cm] = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
         $context = context_module::instance($cm->id);
         self::validate_context($context);
         require_capability('mod/choicegroup:choose', $context);
@@ -374,7 +374,7 @@ class mod_choicegroup_external extends external_api {
      * @return external_function_parameters
      */
     public static function delete_choicegroup_responses_parameters() {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'choicegroupid' => new external_value(PARAM_INT, 'Choice group instance id'),
             ]
@@ -403,7 +403,7 @@ class mod_choicegroup_external extends external_api {
         if (!$choicegroup = choicegroup_get_choicegroup($choicegroupid)) {
             throw new moodle_exception('invalidcoursemodule', 'error');
         }
-        list($course, $cm) = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
+        [$course, $cm] = get_course_and_cm_from_instance($choicegroup, 'choicegroup');
         $context = context_module::instance($cm->id);
         self::validate_context($context);
         require_capability('mod/choicegroup:choose', $context);
@@ -449,5 +449,4 @@ class mod_choicegroup_external extends external_api {
             ]
         );
     }
-
 }

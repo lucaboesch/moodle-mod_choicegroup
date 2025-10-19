@@ -40,7 +40,8 @@ namespace mod_choicegroup\event;
  * @copyright  2014 Dan Poltawski <dan@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class choice_updated extends \core\event\base {
+class choice_updated extends \core\event\base
+{
     /**
      * Init method.
      *
@@ -81,6 +82,4 @@ class choice_updated extends \core\event\base {
     public function get_url() {
         return new \moodle_url('/mod/choicegroup/view.php', ['id' => $this->contextinstanceid]);
     }
-
 }
-

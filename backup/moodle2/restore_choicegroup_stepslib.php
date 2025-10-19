@@ -26,8 +26,8 @@
 /**
  * Define all the restore steps that will be used by the restore_choicegroup_activity_task
  */
-class restore_choicegroup_activity_structure_step extends restore_activity_structure_step {
-
+class restore_choicegroup_activity_structure_step extends restore_activity_structure_step
+{
     /**
      * List of elements that can be restored
      *

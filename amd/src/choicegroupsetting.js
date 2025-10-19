@@ -194,8 +194,8 @@ define(function() {
              * Expand all groupings
              */
             function expandAll() {
-                const groupingOptions = Array.from(availableSelect.options).filter(opt =>
-                    opt.classList.contains('grouping')
+                const groupingOptions = Array.from(availableSelect.options).filter(
+                    opt => opt.classList.contains('grouping')
                 );
 
                 groupingOptions.forEach(opt => {
@@ -209,8 +209,8 @@ define(function() {
              * Collapse all groupings
              */
             function collapseAll() {
-                const groupingOptions = Array.from(availableSelect.options).filter(opt =>
-                    opt.classList.contains('grouping')
+                const groupingOptions = Array.from(availableSelect.options).filter(
+                    opt => opt.classList.contains('grouping')
                 );
 
                 groupingOptions.forEach(opt => {

@@ -28,6 +28,7 @@ namespace mod_choicegroup\event;
 /**
  * The mod_choicegroup instance list viewed event class.
  */
-class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
+class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed
+{
     // No need for any code here as everything is handled by the parent class.
 }

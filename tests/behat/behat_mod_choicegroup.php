@@ -33,7 +33,8 @@ require_once(__DIR__ . '/../../../../lib/behat/behat_base.php');
  * @copyright 2025 Université de Lausanne
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class behat_mod_choicegroup extends behat_base {
+class behat_mod_choicegroup extends behat_base
+{
     /**
      * Convert page names to URLs for steps like 'When I am on the "[page name]" page'.
      *
@@ -67,12 +68,16 @@ class behat_mod_choicegroup extends behat_base {
     protected function resolve_page_instance_url(string $type, string $identifier): moodle_url {
         switch (strtolower($type)) {
             case 'view':
-                return new moodle_url('/mod/choicegroup/view.php',
-                    ['id' => $this->get_cm_by_choicegroup_name($identifier)->id]);
+                return new moodle_url(
+                    '/mod/choicegroup/view.php',
+                    ['id' => $this->get_cm_by_choicegroup_name($identifier)->id]
+                );
 
             case 'report':
-                return new moodle_url('/mod/choicegroup/report.php',
-                    ['id' => $this->get_cm_by_choicegroup_name($identifier)->id]);
+                return new moodle_url(
+                    '/mod/choicegroup/report.php',
+                    ['id' => $this->get_cm_by_choicegroup_name($identifier)->id]
+                );
 
             default:
                 throw new Exception('Unrecognised choicegroup page type "' . $type . '."');
